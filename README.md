@@ -131,3 +131,27 @@ The purpose of the lab is to develop and demonstrate a disciplined approach to *
 ---
 
 **Disclaimer:** Educational research only. Nothing in this repository is a valuation, offer, recommendation or advice to transact. Property information can change and public marketing particulars may be incomplete. Any professional valuation requires an appropriate instruction, investigations, evidence, assumptions, competence, inspection where appropriate, and compliance with the standards applicable to that instruction.
+
+
+## Interactive APC demonstration dashboard
+
+The repository now includes a Streamlit dashboard designed to make the valuation logic inspectable rather than opaque.
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+The dashboard exposes the explicit annual cash flows, discount factors, present values, terminal-value contribution and a two-way discount-rate / exit-yield sensitivity matrix. It also contains a valuer-judgement checkpoint so a calculated output is never presented as an automatic Market Value conclusion.
+
+### Professional controls
+
+See [Model governance and valuation controls](docs/model_governance.md) for the evidence hierarchy, basis-of-value control, false-precision/automation-bias controls and reconciliation process.
+
+See `reconciliation.py` for transparent growth-implicit cross-check helpers. Material divergence between an explicit DCF and an implicit cross-check should be investigated and explained, not mechanically averaged.
+
+### APC demonstration route
+
+For a short interview demonstration: **open dashboard → identify basis and evidence → show cash flows → change discount rate / exit yield → show sensitivity → explain reconciliation → finish with professional judgement.**
+
+> **The model calculates; the valuer concludes.**
